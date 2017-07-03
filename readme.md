@@ -4,6 +4,7 @@
 - Create two new mysql databases with the names set in DB_DATABASE and DB_TEST_DATABASE 
 - Open Terminal window and swicht to project directory.
 - Run ``` composer install ```
+- Run ``` php artisan key:generate ```
 - Run the migrations using  ``` php artisan migrate ```
 - Run the datatbase seeding using ``` php artisan db:seed ```
 - Run ``` npm install ``` and wait for it to install.
@@ -11,7 +12,7 @@
 - Run  ``` php artisan serve ``` . Now server will listen to port 8000 if you want different port like 8080 you have to 
   mention it in the command like below  ``` php artisan serve  --port=8080```
 - Open the browser and check the following url http://localhost:8000/rota-slot-staff  
-- Datatables are used in the view you can sort the data by column values.
+- Datatables are used in the view you can sort the data by column headers.
 
 ## PHPUnit setup guide
 
