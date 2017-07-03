@@ -1,0 +1,31 @@
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+/* 0 - 640 This is to fix some issue on very small screens */
+@media only screen and (min-width: 0px) {
+  body {
+    font-family: sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #636b6f;
+    background-color: #f5f8fa;
+  }
+}
+
+/* 640 - 960  screens */
+
+@media only screen and (min-width: 640px) {
+  body {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
