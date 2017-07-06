@@ -10,9 +10,9 @@ class RotaSlotStaffController  extends Controller
 {
 
     /**
-     * Displays datatables front end view
-     *
-     * @return \Illuminate\View\View
+     * Process Initial request
+     * @param RotaSlots $rotaSlots
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(RotaSlots $rotaSlots)
     {
@@ -24,10 +24,11 @@ class RotaSlotStaffController  extends Controller
 
     }
 
+
     /**
      * Process datatables ajax request.
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * @param RotaSlots $rotaSlots
+     * @return mixed
      */
     public function getData(RotaSlots $rotaSlots)
     {

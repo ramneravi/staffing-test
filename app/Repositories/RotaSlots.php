@@ -65,11 +65,13 @@ class RotaSlots
 
         foreach ($this->rotaSlotsByDay as $dayNumber => $rotaSlotsByStaffId) {
 
-            $totalWorkHoursByDay[$dayNumber] = 0;
+            $totalWorkHours = 0;
 
             foreach ($rotaSlotsByStaffId as $rotaSlot) {
-                $totalWorkHoursByDay[$dayNumber] += $rotaSlot['workHours'];
+                $totalWorkHours += $rotaSlot['workHours'];
             }
+
+            $totalWorkHoursByDay[$dayNumber] = $totalWorkHours;
         }
 
         return $totalWorkHoursByDay;
@@ -90,7 +92,7 @@ class RotaSlots
 
         foreach ($this->rotaSlotsByDay as $day => $rotaSlotList) {
             $nonOverlapTimeCalculator = new NonOverlapTimeCalculator($rotaSlotList);
-            $nonOverlapWorkHoursByDay[$day] = $nonOverlapTimeCalculator->getNonOverlap();
+            $nonOverlapWorkHoursByDay[$day] = $nonOverlapTimeCalculator->getTotalNonOverlapTime();
         }
 
         return $nonOverlapWorkHoursByDay;

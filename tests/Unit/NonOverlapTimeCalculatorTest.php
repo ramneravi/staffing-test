@@ -17,16 +17,15 @@ class NonOverlapTimeCalculatorTest extends TestCase
     /**
      * @dataProvider dataProvider
      *
-     * @param array $timeIntervals1
+     * @param array $timeIntervals
      * @param int $nonOverlapTime
      *
      * @return void
      */
     public function testGetNonOverlap($timeIntervals, $nonOverlapTime)
     {
-        //dd($timeIntervals);
         $nonOverlapTimeCalculator = new NonOverlapTimeCalculator($timeIntervals);
-        $this->assertSame($nonOverlapTime, $nonOverlapTimeCalculator->getNonOverlap());
+        $this->assertSame($nonOverlapTime, $nonOverlapTimeCalculator->getTotalNonOverlapTime());
 
     }
 
@@ -89,6 +88,42 @@ class NonOverlapTimeCalculatorTest extends TestCase
                     ['startTime' => Carbon::today(), 'endTime' => Carbon::today()->addHour(8)],
                     ['startTime' => Carbon::today()->addHour(2), 'endTime' => Carbon::today()->addHour(12)],
                     ['startTime' => Carbon::today()->addHour(12), 'endTime' => Carbon::today()->addHour(18)]
+                ],
+                720
+            ],
+            [
+                [
+                    ['startTime' => Carbon::today(), 'endTime' => Carbon::today()->addHour(4)],
+                    ['startTime' => Carbon::today(), 'endTime' => Carbon::today()->addHour(4)],
+                    ['startTime' => Carbon::today()->addHour(4), 'endTime' => Carbon::today()->addHour(8)],
+                    ['startTime' => Carbon::today()->addHour(8), 'endTime' => Carbon::today()->addHour(12)],
+                    ['startTime' => Carbon::today()->addHour(8), 'endTime' => Carbon::today()->addHour(12)]
+                ],
+                240
+            ],
+            [
+                [
+                    ['startTime' => Carbon::today(), 'endTime' => Carbon::today()->addHour(4)],
+                    ['startTime' => Carbon::today(), 'endTime' => Carbon::today()->addHour(4)],
+                    ['startTime' => Carbon::today()->addHour(6), 'endTime' => Carbon::today()->addHour(8)],
+                    ['startTime' => Carbon::today()->addHour(10), 'endTime' => Carbon::today()->addHour(12)],
+                    ['startTime' => Carbon::today()->addHour(10), 'endTime' => Carbon::today()->addHour(12)]
+                ],
+                120
+            ],
+            [
+                [
+                    ['startTime' => Carbon::today(), 'endTime' => Carbon::today()->addHour(4)],
+                    ['startTime' => Carbon::today()->addHour(2), 'endTime' => Carbon::today()->addHour(6)],
+                    ['startTime' => Carbon::today()->addHour(6), 'endTime' => Carbon::today()->addHour(8)],
+                    ['startTime' => Carbon::today()->addHour(7), 'endTime' => Carbon::today()->addHour(10)],
+                    ['startTime' => Carbon::today()->addHour(8), 'endTime' => Carbon::today()->addHour(12)],
+                    ['startTime' => Carbon::today()->addHour(11), 'endTime' => Carbon::today()->addHour(14)],
+                    ['startTime' => Carbon::today()->addHour(11), 'endTime' => Carbon::today()->addHour(15)],
+                    ['startTime' => Carbon::today()->addHour(12), 'endTime' => Carbon::today()->addHour(14)],
+                    ['startTime' => Carbon::today()->addHour(15), 'endTime' => Carbon::today()->addHour(18)],
+                    ['startTime' => Carbon::today()->addHour(18), 'endTime' => Carbon::today()->addHour(20)],
+
                 ],
                 720
             ],
